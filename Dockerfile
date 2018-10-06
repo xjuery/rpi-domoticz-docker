@@ -4,11 +4,10 @@
 # Based on version by LBTM
 #
 # Base image.
-FROM resin/rpi-raspbian:jessie-20161026
+FROM resin/rpi-raspbian:jessie-20180926
 
-MAINTAINER Florian Chauveau
+LABEL maintainer="fchauveau, xjuery"
 
-# Install Domoticz from sources.
 RUN \
   apt-get update && \
   apt-get install -y cmake apt-utils build-essential && \
@@ -18,7 +17,6 @@ RUN \
   apt-get autoclean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Expose port.
 EXPOSE 8080
 
 CMD ["/root/domoticz/domoticz", "-www", "8080"]
