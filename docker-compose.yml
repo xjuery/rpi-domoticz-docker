@@ -1,0 +1,14 @@
+version: '3'
+services:
+  domoticz:
+    container_name: domoticz
+    restart: always
+    image: "rpi-domoticz-docker:4.13191"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /home/pi/domoticz/data/domoticz.db:/root/domoticz/domoticz.db:rw
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    ports:
+      - "8080:8080" 
+      
