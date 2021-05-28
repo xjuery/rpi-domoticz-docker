@@ -1,4 +1,4 @@
-domoticz-docker
+rpi-domoticz-docker
 ===============
 
 [![](https://badge.imagelayers.io/agileek/rpi-domoticz-docker:2.3530.svg)](https://imagelayers.io/?images=agileek/rpi-domoticz-docker:2.3530 'Get your own badge on imagelayers.io')
@@ -13,24 +13,24 @@ Requirements
 
 Getting your files
 ===
- * Docker file from github : git clone https://github.com/fchauveau/domoticz-docker.git
+ * Docker file from github : git clone https://github.com/xjuery/rpi-domoticz-docker.git
  * [optional] add your database to this directory. it is called domoticz.db
 
 Building
 ===
  * cd domoticz-docker
- * sudo docker build -t my_domoticz .
+ * ./build.sh
 
 Running
 ===
 The basic command is this:
 
-    docker run --device=/dev/ttyUSB0 -v /etc/localtime:/etc/localtime -v /SOMEPATH/domoticz.db:/root/domoticz/domoticz.db:rw -p 8080:8080 --name domoticz --restart=always -d my_domoticz
+    docker run --device=/dev/ttyUSB0 -v /etc/localtime:/etc/localtime -v /SOMEPATH/domoticz.db:/root/domoticz/domoticz.db:rw -p 8080:8080 --name domoticz --restart=always -d domoticz
 
 
 Explanations
 
-* `docker run -d my_domoticz` : the basic run command
+* `docker run -d domoticz` : the basic run command
 * `-v /etc/localtime:/etc/localtime` : use time of the host 
 * `--device=/dev/ttyUSB0` means we expose a device we need to the container.
  * the old way to do this was to use --privileged, but this is a better option
